@@ -11,6 +11,7 @@ AppDispatcher.register(function(action){
 				TodoStore.emit('change');
 			}
 			break;
+			
 		default: 
 			//no op
 	}	

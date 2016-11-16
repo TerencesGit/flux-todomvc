@@ -1,5 +1,5 @@
 import React from 'react';
-var ENTER_KEY_CODE = 13;
+const ENTER_KEY_CODE = 13;
 const TodoTextInput = React.createClass({
 	getInitialState(){
 		return {
@@ -12,9 +12,9 @@ const TodoTextInput = React.createClass({
 				className={this.props.className}
 				id={this.props.id}
 				placeholder={this.props.placeholder}
-				onBlur={this._Save}
+				onBlur={this._save}
 				onChange={this._onChange}
-				onKeyDown={this.onKeyDown}
+				onKeyDown={this._onKeyDown}
 				value={this.state.value}
 				autoFocus={true}
 			/>

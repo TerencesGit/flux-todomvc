@@ -10,7 +10,7 @@ const Header = React.createClass({
 					text: text
 				})
 			}
-		},
+	},
 	render(){
 		return (
 			<header>

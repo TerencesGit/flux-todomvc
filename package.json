@@ -17,5 +17,18 @@
   "bugs": {
     "url": "https://github.com/TransformGit/flux-todomvc/issues"
   },
-  "homepage": "https://github.com/TransformGit/flux-todomvc#readme"
+  "homepage": "https://github.com/TransformGit/flux-todomvc#readme",
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "classnames": "^2.2.5",
+    "flux": "^3.1.0",
+    "object-assign": "^4.1.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  }
 }

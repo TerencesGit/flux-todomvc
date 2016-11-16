@@ -20,6 +20,15 @@ const TodoItem = React.createClass({
 		}
 		return(
 			<li key={todo.id}>
+				<div className="view">
+					<input 
+					 className="toggle"
+					 type="checkbox"
+					/>
+					<label>{todo.text}</label>
+					<button className="destroy" />
+				</div>
+				{input}
 			</li>
 		)
 	}

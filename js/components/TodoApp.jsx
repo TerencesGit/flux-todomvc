@@ -16,6 +16,7 @@ const TodoApp = React.createClass({
 	},
 	_onChange(){
 		this.state = TodoStore.getAll();
+		localStorage.setItem('todos',JSON.stringify(this.state))    
 		this.forceUpdate()
 	},
 	render(){

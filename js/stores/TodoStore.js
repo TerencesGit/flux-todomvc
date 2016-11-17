@@ -1,9 +1,10 @@
 import {EventEmitter} from 'events';
 import assign from 'object-assign';
 
-var _todos = {};
+var _todos =  JSON.parse(localStorage.getItem('react-todos')) || {};
 const TodoStore = assign({}, EventEmitter.prototype, {
 	getAll(){
+		localStorage.setItem('react-todos',JSON.stringify(_todos))    
 		return _todos;
 	},
 	create(text){

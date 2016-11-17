@@ -32,7 +32,8 @@ const TodoItem = React.createClass({
 					 onChange={this._onToggleComplete}
 					/>
 					<label>{todo.text}</label>
-					<button className="destroy" />
+					<button className="destroy" 
+									onClick={this._onDestroyClick} />
 				</div>
 				{input}
 			</li>
@@ -47,6 +48,12 @@ const TodoItem = React.createClass({
 			actionType: actionType,
 			id: id
 		})
-	}
+	},
+	_onDestroyClick(){
+		AppDispatcher.dispatch({
+			actionType: 'TODO_DESTROY',
+			id: this.props.todo.id
+		})
+	}	
 })
 export default TodoItem;

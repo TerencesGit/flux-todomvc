@@ -1,5 +1,4 @@
-//var webpack = require('webpack');
-//var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 module.exports = {
 	entry: './js/app.jsx',
 	output: {
@@ -8,6 +7,9 @@ module.exports = {
 	resolve: {
 		extensions: ['', '.js', '.jsx']
 	},
+	plugins: [
+		new OpenBrowserPlugin({url: 'http://localhost:8080'})
+	],
 	module: {
 		loaders: [
 			{

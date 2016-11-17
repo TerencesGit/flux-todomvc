@@ -18,7 +18,7 @@ const MainSection = React.createClass({
 					type="checkbox"
 				/>
 				<label htmlFor="toggle-all">Mark all as complete</label>
-				<ul id="todolist">{todos}</ul>
+				<ul id="todo-list">{todos}</ul>
 			</section>
 		)
 	}

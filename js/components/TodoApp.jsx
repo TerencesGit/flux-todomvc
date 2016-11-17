@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import MainSection from './MainSection';
+import Footer from './Footer';
 import TodoStore from '../stores/TodoStore';
 
 const TodoApp = React.createClass({
@@ -20,8 +21,9 @@ const TodoApp = React.createClass({
 	render(){
 		return(
 			<div>
-				<Header data={this.state} />
+				<Header />
 				<MainSection data={this.state} />
+				<Footer data={this.state}/>
 			</div>
 		)
 	}

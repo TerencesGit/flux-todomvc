@@ -20,7 +20,7 @@ const TodoStore = assign({}, EventEmitter.prototype, {
 	destroy(id){
 		delete _todos[id]
 	},
-	destroyComplete(){
+	destroyCompleted(){
 		for(var id in _todos){
 			if(_todos[id].complete){
 				this.destroy(id)

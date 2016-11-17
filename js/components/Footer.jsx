@@ -1,5 +1,5 @@
 import React from 'react';
-
+import AppDispatcher from '../dispatcher/AppDispatcher';
 const Footer = React.createClass({
 	render(){
 		var allTodos = this.props.data;
@@ -21,7 +21,8 @@ const Footer = React.createClass({
 		if(completed){
 			clearCompletedButton = 
 				<button
-					id="clear-completed">
+					id="clear-completed"
+					onClick={this._onClearCompletedClick}>
 					Clear completed ({completed})
 				</button>
 		}
@@ -34,6 +35,11 @@ const Footer = React.createClass({
 				{clearCompletedButton}
 			</footer>
 		)
+	},
+	_onClearCompletedClick(){
+		AppDispatcher.dispatch({
+			actionType: 'TODO_DESTROY_COMPLETED'
+		})
 	}
 })	
 export default Footer;

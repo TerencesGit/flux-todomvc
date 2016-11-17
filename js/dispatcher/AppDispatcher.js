@@ -23,6 +23,10 @@ AppDispatcher.register(function(action){
 			TodoStore.destroy(action.id);
 			TodoStore.emit('change');
 			break;
+		case 'TODO_DESTROY_COMPLETED':
+			TodoStore.destroyComplete();
+			TodoStore.emit('change');
+			break;
 		default: 
 			//no op
 	}	

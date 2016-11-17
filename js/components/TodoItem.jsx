@@ -31,7 +31,9 @@ const TodoItem = React.createClass({
 					 checked={todo.complete}
 					 onChange={this._onToggleComplete}
 					/>
-					<label>{todo.text}</label>
+					<label onDoubleClick={this._onDoubleClick}>
+						{todo.text}
+					</label>
 					<button className="destroy" 
 									onClick={this._onDestroyClick} />
 				</div>
@@ -54,6 +56,21 @@ const TodoItem = React.createClass({
 			actionType: 'TODO_DESTROY',
 			id: this.props.todo.id
 		})
-	}	
+	},
+	_onDoubleClick(){
+		this.setState({
+			isEditing: true
+		})
+	},
+	_onSave(text){
+		AppDispatcher.dispatch({
+			actionType: 'TODO_UPDATE_TEXT',
+			id: this.props.todo.id,
+			text: text
+		});
+		this.setState({
+			isEditing: false
+		})
+	}
 })
 export default TodoItem;

@@ -24,9 +24,16 @@ AppDispatcher.register(function(action){
 			TodoStore.emit('change');
 			break;
 		case 'TODO_DESTROY_COMPLETED':
-			TodoStore.destroyComplete();
+			TodoStore.destroyCompleted();
 			TodoStore.emit('change');
 			break;
+		case 'TODO_UPDATE_TEXT':
+			text = action.text.trim();
+			if(text){
+			 TodoStore.update(action.id, {text: text})
+			 TodoStore.emit('change')
+			}
+		 break;
 		default: 
 			//no op
 	}	

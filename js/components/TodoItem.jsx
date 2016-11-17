@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import TodoTextInput from './TodoTextInput';
-import AppDispatcher from '../dispatcher/AppDispatcher';
+import TodoActions from '../Actions/TodoActions';
 const TodoItem = React.createClass({
 	getInitialState(){
 		return {
@@ -42,20 +42,10 @@ const TodoItem = React.createClass({
 		)
 	},
 	_onToggleComplete(){
-		var id = this.props.todo.id;
-		var actionType = this.props.todo.complete ? 
-				'TODO_UNDO_COMPLETE' :
-				'TODO_COMPLETE';
-		AppDispatcher.dispatch({
-			actionType: actionType,
-			id: id
-		})
+		TodoActions.toggleComplete(this.props.todo)
 	},
 	_onDestroyClick(){
-		AppDispatcher.dispatch({
-			actionType: 'TODO_DESTROY',
-			id: this.props.todo.id
-		})
+		TodoActions.destroy(this.props.todo.id)
 	},
 	_onDoubleClick(){
 		this.setState({
@@ -63,11 +53,7 @@ const TodoItem = React.createClass({
 		})
 	},
 	_onSave(text){
-		AppDispatcher.dispatch({
-			actionType: 'TODO_UPDATE_TEXT',
-			id: this.props.todo.id,
-			text: text
-		});
+		TodoActions.updateText(text,this.props.todo.id)
 		this.setState({
 			isEditing: false
 		})

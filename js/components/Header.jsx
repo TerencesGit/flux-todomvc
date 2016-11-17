@@ -1,19 +1,15 @@
 import React from 'react';
 import TodoTextInput from './TodoTextInput';
-import AppDispatcher from '../dispatcher/AppDispatcher';
-
+import TodoActions from '../actions/TodoActions';
 const Header = React.createClass({
 	_onSave(text){
 			if(text.trim()){
-				AppDispatcher.dispatch({
-					actionType: 'TODO_CREATE',
-					text: text
-				})
+				TodoActions.create(text)
 			}
 	},
 	render(){
 		return (
-			<header>
+			<header id="header">
 				<h1>todos</h1>
 				<TodoTextInput 
 				  id="new-todo"

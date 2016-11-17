@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoItem from './TodoItem';
-import AppDispatcher from '../dispatcher/AppDispatcher';
+import TodoActions from '../actions/TodoActions';
 const MainSection = React.createClass({
 	render(){
 		if(Object.keys(this.props.data).length < 1){
@@ -24,9 +24,7 @@ const MainSection = React.createClass({
 		)
 	},
 	_onToggleCompleteAll(){
-		AppDispatcher.dispatch({
-			actionType: 'TODO_COMPLETE_ALL'
-		})
+		TodoActions.toggleCompleteAll()
 	}
 })
 

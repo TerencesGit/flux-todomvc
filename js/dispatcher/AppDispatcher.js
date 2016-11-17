@@ -34,6 +34,14 @@ AppDispatcher.register(function(action){
 			 TodoStore.emit('change')
 			}
 		 break;
+		case 'TODO_COMPLETE_ALL':
+			if(TodoStore.areAllComplete()){
+				TodoStore.updateAll({complete: false})
+			}else{
+				TodoStore.updateAll({complete: true})
+			}
+			TodoStore.emit('change')
+			break;
 		default: 
 			//no op
 	}	

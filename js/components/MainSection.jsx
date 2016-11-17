@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoItem from './TodoItem';
-
+import AppDispatcher from '../dispatcher/AppDispatcher';
 const MainSection = React.createClass({
 	render(){
 		if(Object.keys(this.props.data).length < 1){
@@ -16,11 +16,17 @@ const MainSection = React.createClass({
 				<input
 					id="toggle-all"
 					type="checkbox"
+					onClick={this._onToggleCompleteAll}
 				/>
 				<label htmlFor="toggle-all">Mark all as complete</label>
 				<ul id="todo-list">{todos}</ul>
 			</section>
 		)
+	},
+	_onToggleCompleteAll(){
+		AppDispatcher.dispatch({
+			actionType: 'TODO_COMPLETE_ALL'
+		})
 	}
 })
 

@@ -27,5 +27,18 @@ const TodoStore = assign({}, EventEmitter.prototype, {
 			}
 		}
 	},
+	areAllComplete(){
+		for(var id in _todos){
+			if(!_todos[id].complete){
+				return false
+			}
+		}
+		return true;
+	},
+	updateAll(updates){
+		for(var id in _todos){
+			this.update(id, updates)
+		}
+	}
 })
 export default TodoStore;

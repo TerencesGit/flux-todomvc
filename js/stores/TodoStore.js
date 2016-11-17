@@ -14,6 +14,9 @@ const TodoStore = assign({}, EventEmitter.prototype, {
 			text: text
 		}
 	},
+	update(id, updates){
+		_todos[id] = assign({}, _todos[id], updates)
+	},
 	destroy(id){
 		delete _todos[id]
 	},
@@ -24,8 +27,5 @@ const TodoStore = assign({}, EventEmitter.prototype, {
 			}
 		}
 	},
-	update(id, updates){
-		_todos[id] = assign({}, _todos[id], updates)
-	}
 })
 export default TodoStore;

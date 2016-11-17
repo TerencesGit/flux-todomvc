@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import TodoTextInput from './TodoTextInput';
-
+import AppDispatcher from '../dispatcher/AppDispatcher';
 const TodoItem = React.createClass({
 	getInitialState(){
 		return {
@@ -19,11 +19,17 @@ const TodoItem = React.createClass({
 							/>;
 		}
 		return(
-			<li key={todo.id}>
+			<li key={todo.id}
+					className={classNames({
+						'completed': todo.complete,
+						'editing': this.state.isEditing
+					})}>
 				<div className="view">
 					<input 
 					 className="toggle"
 					 type="checkbox"
+					 checked={todo.complete}
+					 onChange={this._onToggleComplete}
 					/>
 					<label>{todo.text}</label>
 					<button className="destroy" />
@@ -31,6 +37,16 @@ const TodoItem = React.createClass({
 				{input}
 			</li>
 		)
+	},
+	_onToggleComplete(){
+		var id = this.props.todo.id;
+		var actionType = this.props.todo.complete ? 
+				'TODO_UNDO_COMPLETE' :
+				'TODO_COMPLETE';
+		AppDispatcher.dispatch({
+			actionType: actionType,
+			id: id
+		})
 	}
 })
 export default TodoItem;

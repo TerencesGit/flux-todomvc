@@ -11,7 +11,14 @@ AppDispatcher.register(function(action){
 				TodoStore.emit('change');
 			}
 			break;
-			
+		case 'TODO_COMPLETE':
+			TodoStore.update(action.id, {complete: true});
+			TodoStore.emit('change');
+			break;
+		case 'TODO_UNDO_COMPLETE':
+		  TodoStore.update(action.id, {complete: false});
+		  TodoStore.emit('change');
+		  break;
 		default: 
 			//no op
 	}	

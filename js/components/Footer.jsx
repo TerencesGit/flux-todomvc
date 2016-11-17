@@ -9,7 +9,7 @@ const Footer = React.createClass({
 		}
 		var completed = 0;
 		for(var key in allTodos){
-			if(allTodos[key].completed){
+			if(allTodos[key].complete){
 				completed++;
 			}
 		}
@@ -22,7 +22,7 @@ const Footer = React.createClass({
 			clearCompletedButton = 
 				<button
 					id="clear-completed">
-					Clear completed
+					Clear completed ({completed})
 				</button>
 		}
 		return (
